@@ -9257,9 +9257,22 @@ xmlParseStartTag2(xmlParserCtxtPtr ctxt, const xmlChar **pref,
                                        URL, NULL, NULL);
                 } else {
                     if (uri->scheme == NULL) {
-                        xmlNsWarn(ctxt, XML_WAR_NS_URI_RELATIVE,
-                                  "xmlns: URI %s is not absolute\n",
-                                  URL, NULL, NULL);
+
+                        /*
+                         
+                         extra check to ignore vcard-temp because
+                         XMPP authors were ignorant of spec and its limitations
+                         this warning clogs up your logs and gets realy irritating
+                        
+                         */
+                        
+                        if (xmlStrcmp(URL, (xmlChar *)"vcard-temp") != 0){
+                            xmlNsWarn(ctxt, XML_WAR_NS_URI_RELATIVE,
+                                      "xmlns: URI %s is not absolute\n",
+                                      URL, NULL, NULL);
+                        }
+                        
+                        
                     }
                     xmlFreeURI(uri);
                 }
