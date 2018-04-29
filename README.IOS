@@ -1,0 +1,24 @@
+iOS usage instructions
+
+Lazy instructions:
+
+1. Skip to step 3 below
+
+Build instructions:
+
+1. Clone the project and cd to the directory in the terminal
+
+# for example, if your git projects are stored in /Users/<USERNAME>/Projects
+
+ cd ~/Projects/libxml2
+
+2. Build the project
+
+ chmod +x ios_build.sh
+ ./ios_build.sh
+
+3. Go into the build folder and take the libxml2.a and include folders (may have to dig into one of the build folders to get to the include folder) and move them into your target Project folder
+4. Add the library to your Project (make sure any you remove any prior references / links to libxml that apple provides)
+5. Add the include path to your header paths in build settings
+6. Add liblzma.* from Apples provided libraries in project settings
+7. Profit!
