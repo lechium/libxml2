@@ -6,6 +6,11 @@ Full documentation is available on-line at
 
 This code is released under the MIT Licence see the Copyright file.
 
+To build for iOS:
+
+  chmod +x build_ios.sh
+  ./build_ios.sh
+
 To build on an Unixised setup:
    ./configure ; make ; make install
 To build on Windows:
